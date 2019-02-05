@@ -51,6 +51,9 @@ bindsym Mod1+Shift+q kill
 # installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym Mod1+G gaps inner current minus 8; gaps outer current minus 8
+bindsym Mod1+Shift+G gaps inner current plus 8; gaps outer current plus 8
+
 # change focus
 bindsym Mod1+$left focus left
 bindsym Mod1+$down focus down
@@ -83,6 +86,8 @@ bindsym Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle
+
+bindsym Mod1+Shift+F exec firefox
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym Mod1+s layout stacking
@@ -226,7 +231,8 @@ exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal; sleep 2'
 exec --no-startup-id i3-msg 'workspace 5; exec thunderbird; sleep 2'
 exec --no-startup-id i3-msg 'workspace 1'
 exec --no-startup-id polychromatic-tray-applet
+exec --no-startup-id compton
 
-new_window pixel 1
+new_window pixel 3
 exec xinput set-prop 15 289 1
 exec --no-startup-id xmodmap ~/.xmodmap
