@@ -181,6 +181,8 @@ set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color2
 set_from_resource $ag i3wm.color3
 set_from_resource $cg i3wm.color6
+set_from_resource $dg i3wm.color5
+set_from_resource $eg i2wm.color1
 
 bar {
 	position top
@@ -215,9 +217,9 @@ exec ~/.local/bin/wal --vte -R
 #set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $ag
-client.unfocused        $bg     $bg     $fg  $bg       $ag
+client.focused          $bg     $bg     $fg  $bg       $ag
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
