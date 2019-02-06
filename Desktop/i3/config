@@ -89,6 +89,7 @@ bindsym Mod1+f fullscreen toggle
 
 #################################################
 bindsym Mod1+Shift+F exec firefox
+bindsym Mod1+Shift+P exec pavucontrol
 #################################################
 
 # change container layout (stacked, tabbed, toggle split)
