@@ -123,7 +123,19 @@ alias starwars='telnet towel.blinkenlights.nl'
 alias i3settings='vim ~/.config/i3/config'
 alias clock='tty-clock -c -C 7 -t'
 alias screenshot='gnome-screenshot -i'
-alias fix='dpkg-reconfigure keyboard-configuration'
+alias fix='sudo dpkg-reconfigure keyboard-configuration'
+alias linuxlab='cd ~/.screenlayout && ./topTB.sh'
+alias laptop='cd ~/.screenlayout && ./laptopOnly.sh'
+alias sideMonitor='cd ~/.screenlayout && ./sid.sh'
+alias onlyMonitor='cd ~/.screenlayout && ./onlyMonitor.sh'
+alias calendar='cal -C 12'
+alias headphones='pacmd load-module module-alsa-sink device=hw:CARD=S7,DEV=1'
+alias keyboard='xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape''
+alias off='xset dpms force standby && sleep 3'
+alias homeSetup='cd ~/.screenlayout && ./home.sh && sleep 2 && headphones &&
+    keyboard && pavucontrol'
 
 (cat ~/.cache/wal/sequences &)
 export PATH="${PATH}:${HOME}/.local/bin/"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
