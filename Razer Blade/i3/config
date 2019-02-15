@@ -243,8 +243,9 @@ exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 new_window pixel 3
-exec xinput set-prop 15 289 1
+exec xinput set-prop 17 304 1
 exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id xcape -e 'Mode_switch=Escape'
-
-exec pulseaudio
+exec laptop
+exec wal --vte -R
+exec --no-startup-id pulseaudio --start
