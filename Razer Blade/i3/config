@@ -93,8 +93,9 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+F exec firefox
 bindsym $mod+Shift+P exec pavucontrol
 bindsym $mod+Shift+B exec blueman-applet
-bindsym $mod+F8 exec xbacklight -dec 10
-bindsym $mod+F9 exec xbacklight -inc 10
+bindsym $mod+F8 exec xbacklight -dec 5
+bindsym $mod+F9 exec xbacklight -inc 5
+bindsym $mod+Shift+T exec eclipse
 #########################################################
 
 # change container layout (stacked, tabbed, toggle split)
