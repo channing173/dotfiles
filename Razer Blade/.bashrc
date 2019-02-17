@@ -151,15 +151,21 @@ alias linuxlab='cd ~/.screenlayout && ./topTB.sh'
 alias laptop='cd ~/.screenlayout && ./laptopOnly.sh && sleep 2 && wal --vte -R'
 alias sideMonitor='cd ~/.screenlayout && ./sid.sh'
 alias onlyMonitor='cd ~/.screenlayout && ./onlyMonitor.sh'
-alias calendar='cal -C 12'
+alias calendar='cal --c 12'
 alias headphones='pacmd load-module module-alsa-sink device=hw:CARD=S7,DEV=1'
 alias keyboard='xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape''
 alias off='xset dpms force standby && sleep 3'
-alias homeSetup='cd ~/.screenlayout && ./home.sh && sleep 2 && keyboard && wal --vte -R'
+alias homeSetup='cd ~/.screenlayout && ./home.sh'
 alias barConf='vim ~/.config/polybar/config'
 alias killbar='killall polybar'
+alias colors='wal --vte -R'
+alias vpn='sudo openvpn --config ~/Downloads/AzireVPN-se.ovpn'
+alias mirror='cd ~/.screenlayout && ./topTBmirror.sh'
+
 (cat ~/.cache/wal/sequences &)
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
