@@ -96,6 +96,7 @@ bindsym $mod+Shift+B exec blueman-applet
 bindsym $mod+F8 exec xbacklight -dec 5
 bindsym $mod+F9 exec xbacklight -inc 5
 bindsym $mod+Shift+T exec eclipse
+bindsym $mod+Shift+N exec nautilus
 #########################################################
 
 # change container layout (stacked, tabbed, toggle split)
@@ -246,7 +247,7 @@ exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 new_window pixel 3
-exec xinput set-prop 17 304 1
+exec xinput set-prop 17 306 1
 exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec laptop
