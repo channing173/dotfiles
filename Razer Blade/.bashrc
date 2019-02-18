@@ -148,7 +148,7 @@ alias clock='tty-clock -c -C 7 -t'
 alias screenshot='gnome-screenshot -i'
 alias fix='sudo dpkg-reconfigure keyboard-configuration'
 alias linuxlab='cd ~/.screenlayout && ./topTB.sh'
-alias laptop='cd ~/.screenlayout && ./laptopOnly.sh && sleep 2 && wal --vte -R'
+alias laptop='cd ~/.screenlayout && ./laptopOnly.sh'
 alias sideMonitor='cd ~/.screenlayout && ./sid.sh'
 alias onlyMonitor='cd ~/.screenlayout && ./onlyMonitor.sh'
 alias calendar='cal --c 12'
@@ -161,7 +161,8 @@ alias killbar='killall polybar'
 alias colors='wal --vte -R'
 alias vpn='sudo openvpn --config ~/Downloads/AzireVPN-se.ovpn'
 alias mirror='cd ~/.screenlayout && ./topTBmirror.sh'
-
+alias audio='pulseaudio -k && sleep 2 && pulseaudio --start
+'
 (cat ~/.cache/wal/sequences &)
 export PATH="${PATH}:${HOME}/.local/bin/"
 

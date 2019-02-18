@@ -205,7 +205,8 @@ set_from_resource $ag i3wm.color3
 
 #}
 
-bindsym $mod+z bar mode toggle
+bindsym $mod+Z bar mode toggle
+bindsym $mod+Shift+Z exec --no-startup-id xmodmap ~/.xmodmap
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -250,5 +251,4 @@ exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec laptop
 exec wal --vte -R
-exec --no-startup-id pulseaudio --start
 exec_always --no-startup-id polybar example
