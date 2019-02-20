@@ -56,7 +56,7 @@ font-2 = Wuncon Siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = xwindow
-modules-right = xbacklight cpu memory wlan eth battery date powermenu
+modules-right = xbacklight updates-arch-combined cpu memory wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -100,7 +100,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F${xrdb:color5:#0a81f5}}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -166,8 +166,8 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label =
+format = <bar> <label> 
+label = %percentage%%
 
 bar-width = 10
 bar-indicator = |
@@ -199,7 +199,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color6:#f90000}
-label = %percentage%
+label = %percentage%%
 
 [module/wlan]
 type = internal/network
@@ -366,5 +366,12 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/polybar-scripts/updates-arch-combined.sh
+interval = 600
+;format-prefix = " "
+format-underline = ${xrdb:color5:#f50a4d}
 
 ; vim:ft=dosini
