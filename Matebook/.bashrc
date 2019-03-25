@@ -162,6 +162,8 @@ alias colors='wal --vte -R'
 alias vpn='sudo openvpn --config ~/Downloads/AzireVPN-se.ovpn'
 alias mirror='cd ~/.screenlayout && ./topTBmirror.sh'
 alias audio='pulseaudio -k && sleep 2 && pulseaudio --start'
+alias weather='curl wttr.in/Harrisonburg'
+alias neofetch='neofetch --ascii_distro arch'
 #alias dpiL ='mv ~/.Xresources ~/.Xresourcesother && mv ~/.Xresourcesother1 ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
 #alias dpiM ='mv ~/.Xresources ~/.Xresourcesother1 && mv ~/.Xresourcesother ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
 
