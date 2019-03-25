@@ -12,11 +12,16 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
-
+# Sets gaps to about the same size inside and outside
+gaps outer 4
 gaps inner 8
-gaps outer 8
+
+# Enables gaps to be off when there is only one window
 smart_gaps on
- 
+
+# Hides the border when there is only one window on the screen
+hide_edge_borders smart
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -30,9 +35,9 @@ smart_gaps on
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up i
-set $down k
-set $left j
+set $up k
+set $down j 
+set $left h 
 set $right l
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -46,12 +51,14 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-    #bindsym $mod+d exec dmenu_run
+    #bindsym $mod+d exec dmenu_run -sb "$bg"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Allows the user to change the size of the gaps from 0-infinity in multiples of
+# 8
 bindsym $mod+G gaps inner current minus 8; gaps outer current minus 8
 bindsym $mod+Shift+G gaps inner current plus 8; gaps outer current plus 8
 
@@ -62,10 +69,10 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Y resize shrink width 5 px or 5 ppt
+bindsym $mod+U resize grow height 5 px or 5 ppt
+bindsym $mod+I resize shrink height 5 px or 5 ppt
+bindsym $mod+O resize grow width 5 px or 5 ppt
 
 # move focused window
 bindsym $mod+Shift+$left move left
@@ -80,7 +87,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -88,10 +95,34 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-#################################################
+########################################################
+# Keybinds for launching various programs and shortcuts
 bindsym $mod+Shift+F exec firefox
 bindsym $mod+Shift+P exec pavucontrol
-#################################################
+
+# Changes backlight value
+bindsym $mod+F1 exec xbacklight -dec 5
+bindsym $mod+F2 exec xbacklight -inc 5
+
+bindsym $mod+Shift+T exec eclipse
+bindsym $mod+Shift+N exec nautilus
+
+# Binds Caps Lock to Excape and holding Escape+hjkl to arrow keys using an
+# xmodmap script and xcape -e
+bindsym $mod+Tab exec xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape'
+bindsym $mod+Shift+Tab exec wal --vte -R
+
+# Changes the dpi and display output preferences
+bindsym $mod+Shift+V exec ~/.screenlayout/laptopOnly.sh
+bindsym $mod+Shift+B exec ~/.screenlayout/home.sh && xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape'
+bindsym $mod+Shift+X exec ~/arandr/dpiM.sh
+bindsym $mod+Shift+Z exec ~/arandr/dpiL.sh
+bindsym $mod+Shift+O exec ~/.config/polybar/polybar1.sh
+bindsym $mod+Shift+I exec ~/.config/polybar/polybar.sh
+
+bindsym $mod+F8 exec arandr
+bindsym $mod+Shift+M exec thunderbird
+#########################################################
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -117,6 +148,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Brings up a screenshot prompt much like the Windows snipping tool
 bindsym $mod+p exec gnome-screenshot -i
 
 # switch to workspace
@@ -124,24 +156,24 @@ bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
-bindsym $mod+0 workspace 10 
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+5 workspace 5
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+0 move container to workspace 10 
+bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -174,29 +206,36 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
+# Runs wal and restores the previous color scheme on reboot/restart
+exec wal --vte -R
+
+# Sets colors from wal to variables for easier access below
 set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color2
 set_from_resource $ag i3wm.color3
-set_from_resource $cg i3wm.color6
-set_from_resource $dg i3wm.color5
-set_from_resource $eg i2wm.color1
 
-bar {
-	position top
-        status_command i3status
+#bar {
+    
+    #colors {
 
-    colors {
+        #focused_workspace $ag $bg #ffffff
+        #background #00000045
+    
+    #}
 
-        focused_workspace $ag $bg #ffffff
+    #i3bar_command i3bar -t
+    #status_command i3status
+    #position top
 
-    }
+#}
 
-}
+# Allows you to toggle the i3bar on and off
+bindsym $mod+Z bar mode toggle
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -207,58 +246,39 @@ bar {
 #
 # Please remove the following exec line:
 #######################################################################
+
+# Restores your wallpaper on reboot/restart
 exec --no-startup-id nitrogen --restore
-exec ~/.local/bin/wal --vte -R
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-#set_from_resource $fg i3wm.color7 #f0f0f0
-#set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $ag i3wm.color3
 
+# Sets the borders of the windows in i3 to your wal color scheme
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $ag
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       #000000
+client.unfocused        $bg     $bg     $fg  $bg       #000000
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
 
-bindsym $mod+d exec dmenu_run -sb "$bg"
+#bindsym $mod+d exec dmenu_run -sb "$bg"
+bindsym $mod+d exec rofi -show run
+exec --no-startup-id polychromatic-tray-applet
+exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
-exec ~/.screenlayout/dual.sh
-
-workspace 1 output DP-4
-workspace 2 output HDMI-0
-workspace 3 output DP-4
-workspace 4 output HDMI-0
-workspace 5 output DP-4
-workspace 6 output HDMI-0
-workspace 7 output DP-4
-workspace 8 output HDMI-0
-workspace 9 output HDMI-0
-workspace 10 output DP-4
-
-#workspace 1 output DP-0
-#workspace 2 output DP-5
-#workspace 3 output HDMI-0
-#workspace 4 output DP-3	
-#workspace 6 output DP-0
-#workspace 7 output HDMI-0
-#workspace 8 output DP-3
-#workspace 9 output DP-5
-#workspace 5 output DP-5
-
-exec --no-startup-id compton
-
-exec --no-startup-id i3-msg 'workspace 9; exec firefox hangouts.google.com; sleep 2'
-exec --no-startup-id i3-msg 'workspace 9; exec firefox groupme.com; sleep 2'
-exec --no-startup-id i3-mst 'workspace 10; exec thunderbird; sleep 2'
-exec --no-startup-id i3-msg 'workspace 2; workspace 1'
-
-exec pulseaudio
-
+# Executes various scripts on startup
 new_window pixel 3
+exec xinput set-prop 11 289 1
+exec --no-startup-id xmodmap ~/.xmodmap
+exec --no-startup-id xcape -e 'Mode_switch=Escape'
+exec ~/.screenlayout/ultrawide.sh
+exec wal --vte -R
+exec_always --no-startup-id ~/.config/polybar/polybar.sh
