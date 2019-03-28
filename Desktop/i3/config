@@ -248,7 +248,7 @@ bindsym $mod+Z bar mode toggle
 #######################################################################
 
 # Restores your wallpaper on reboot/restart
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
@@ -282,3 +282,4 @@ exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec ~/.screenlayout/ultrawide.sh
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id redshift -l 36:75
