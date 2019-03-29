@@ -59,8 +59,8 @@ bindsym $mod+Shift+q kill
 
 # Allows the user to change the size of the gaps from 0-infinity in multiples of
 # 8
-bindsym $mod+G gaps inner current minus 8; gaps outer current minus 8
-bindsym $mod+Shift+G gaps inner current plus 8; gaps outer current plus 8
+bindsym $mod+G gaps inner current minus 8; gaps outer current minus 4
+bindsym $mod+Shift+G gaps inner current plus 8; gaps outer current plus 4
 
 # change focus
 bindsym $mod+$left focus left
@@ -248,7 +248,7 @@ bindsym $mod+Z bar mode toggle
 #######################################################################
 
 # Restores your wallpaper on reboot/restart
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
@@ -258,10 +258,11 @@ exec --no-startup-id nitrogen --restore
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 set_from_resource $ag i3wm.color3
+set_from_resource $dg i3wm.color6   
 
 # Sets the borders of the windows in i3 to your wal color scheme
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $ag
+client.focused          $bg     $bg     $fg  $dg       $ag
 client.focused_inactive $bg     $bg     $fg  $bg       #000000
 client.unfocused        $bg     $bg     $fg  $bg       #000000
 client.urgent           $bg     $bg     $fg  $bg       $bg
@@ -271,14 +272,14 @@ client.background       $bg
 
 #bindsym $mod+d exec dmenu_run -sb "$bg"
 bindsym $mod+d exec rofi -show run
-exec --no-startup-id polychromatic-tray-applet
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
 # Executes various scripts on startup
-new_window pixel 3
+new_window pixel 0
 exec xinput set-prop 11 289 1
 exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec ~/.screenlayout/ultrawide.sh
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id redshift -l 36:75
