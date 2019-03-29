@@ -283,4 +283,5 @@ exec_always --no-startup-id xcape -e 'Mode_switch=Escape'
 exec laptop
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift
