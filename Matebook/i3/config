@@ -59,8 +59,8 @@ bindsym $mod+Shift+q kill
 
 # Allows the user to change the size of the gaps from 0-infinity in multiples of
 # 8
-bindsym $mod+G gaps inner current minus 8; gaps outer current minus 8
-bindsym $mod+Shift+G gaps inner current plus 8; gaps outer current plus 8
+bindsym $mod+G gaps inner current minus 8; gaps outer current minus 4
+bindsym $mod+Shift+G gaps inner current plus 8; gaps outer current plus 4
 
 # change focus
 bindsym $mod+$left focus left
@@ -248,7 +248,7 @@ bindsym $mod+Z bar mode toggle
 #######################################################################
 
 # Restores your wallpaper on reboot/restart
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
@@ -283,3 +283,5 @@ exec_always --no-startup-id xcape -e 'Mode_switch=Escape'
 exec laptop
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+exec --no-startup-id redshift
