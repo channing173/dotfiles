@@ -115,10 +115,11 @@ bindsym $mod+Shift+Tab exec wal --vte -R
 # Changes the dpi and display output preferences
 bindsym $mod+Shift+V exec ~/.screenlayout/laptopOnly.sh
 bindsym $mod+Shift+B exec ~/.screenlayout/home.sh && xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape'
-bindsym $mod+Shift+X exec ~/arandr/dpiM.sh
-bindsym $mod+Shift+Z exec ~/arandr/dpiL.sh
 bindsym $mod+Shift+O exec ~/.config/polybar/polybar1.sh
 bindsym $mod+Shift+I exec ~/.config/polybar/polybar.sh
+
+bindsym $mod+Shift+Z exec ~/.screenlayout/split.sh
+bindsym $mod+Shift+X exec ~/.screenlayout/ultrawide.sh
 
 bindsym $mod+F8 exec arandr
 bindsym $mod+Shift+M exec thunderbird
@@ -282,4 +283,3 @@ exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec ~/.screenlayout/ultrawide.sh
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
-exec --no-startup-id redshift -l 36:75
