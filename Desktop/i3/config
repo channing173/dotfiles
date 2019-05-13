@@ -97,7 +97,7 @@ bindsym $mod+f fullscreen toggle
 
 ########################################################
 # Keybinds for launching various programs and shortcuts
-bindsym $mod+Shift+F exec firefox
+bindsym $mod+Shift+F exec firefox-beta
 bindsym $mod+Shift+P exec pavucontrol
 
 # Changes backlight value
@@ -113,8 +113,8 @@ bindsym $mod+Tab exec xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape'
 bindsym $mod+Shift+Tab exec wal --vte -R
 
 # Changes the dpi and display output preferences
-bindsym $mod+Shift+V exec ~/.screenlayout/laptopOnly.sh
-bindsym $mod+Shift+B exec ~/.screenlayout/home.sh && xmodmap ~/.xmodmap && xcape -e 'Mode_switch=Escape'
+bindsym $mod+Shift+V exec ~/.screenlayout/ultrawide.sh
+bindsym $mod+Shift+B exec ~/.screenlayout/ultrawide60.sh
 bindsym $mod+Shift+O exec ~/.config/polybar/polybar1.sh
 bindsym $mod+Shift+I exec ~/.config/polybar/polybar.sh
 
@@ -122,7 +122,9 @@ bindsym $mod+Shift+Z exec ~/.screenlayout/split.sh
 bindsym $mod+Shift+X exec ~/.screenlayout/ultrawide.sh
 
 bindsym $mod+F8 exec arandr
-bindsym $mod+Shift+M exec thunderbird
+bindsym $mod+Shift+M exec nvidia-settings
+bindsym $mod+Shift+S exec steam 
+bindsym $mod+Shift+D exec discord
 #########################################################
 
 # change container layout (stacked, tabbed, toggle split)
@@ -283,3 +285,4 @@ exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec ~/.screenlayout/ultrawide.sh
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+exec --no-startup-id i3-msg 'workspace 10; exec discord; exec steam; workspace 1'
