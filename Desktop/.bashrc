@@ -166,9 +166,17 @@ alias weather='curl wttr.in/Harrisonburg'
 alias neofetch='neofetch --ascii_distro arch'
 #alias dpiL ='mv ~/.Xresources ~/.Xresourcesother && mv ~/.Xresourcesother1 ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
 #alias dpiM ='mv ~/.Xresources ~/.Xresourcesother1 && mv ~/.Xresourcesother ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
+alias ultrawide='~/.screenlayout/ultrawide.sh'
+alias dual='~/.screenlayout/dual.sh'
+alias r='ranger'
+alias server='cd ~/github/bukkitserver && ./craftbukkit.sh'
+alias ror='killall Risk\ of\ Rain\ 2.'
 
 (cat ~/.cache/wal/sequences &)
 export PATH="${PATH}:${HOME}/.local/bin/"
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
