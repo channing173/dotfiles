@@ -97,7 +97,7 @@ bindsym $mod+f fullscreen toggle
 
 ########################################################
 # Keybinds for launching various programs and shortcuts
-bindsym $mod+Shift+F exec firefox-beta
+bindsym $mod+Shift+F exec firefox
 bindsym $mod+Shift+P exec pavucontrol
 
 # Changes backlight value
@@ -125,6 +125,8 @@ bindsym $mod+F8 exec arandr
 bindsym $mod+Shift+M exec nvidia-settings
 bindsym $mod+Shift+S exec steam 
 bindsym $mod+Shift+D exec discord
+bindsym $mod+Shift+Y exec stalonetray
+bindsym $mod+Shift+U exec killall stalonetray
 #########################################################
 
 # change container layout (stacked, tabbed, toggle split)
@@ -285,4 +287,5 @@ exec --no-startup-id xcape -e 'Mode_switch=Escape'
 exec ~/.screenlayout/ultrawide.sh
 exec wal --vte -R
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
-exec --no-startup-id i3-msg 'workspace 10; exec discord; exec steam; workspace 1'
+exec solaar
+exec blueman-applet

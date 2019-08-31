@@ -54,14 +54,14 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Wuncon Siji:pixelsize=10;1
+font-2 = Siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = xwindow
 modules-right = xbacklight updates-arch-combined cpu memory wlan eth battery date
  
 tray-maxsize = 1000
-tray-position = right
+tray-position =
 tray-padding = 2
 
 
@@ -100,7 +100,7 @@ modules-center = xwindow
 modules-right = xbacklight updates-arch-combined cpu memory wlan eth battery date
 
 tray-maxsize = 1000
-tray-position = right
+tray-position =
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -267,7 +267,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = enp3s0
 interval = 3.0
 
 format-connected-underline = ${xrdb:color5:#55aa55}
