@@ -166,7 +166,18 @@ alias weather='curl wttr.in/Harrisonburg'
 alias neofetch='neofetch --ascii_distro arch'
 #alias dpiL ='mv ~/.Xresources ~/.Xresourcesother && mv ~/.Xresourcesother1 ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
 #alias dpiM ='mv ~/.Xresources ~/.Xresourcesother1 && mv ~/.Xresourcesother ~/.Xresources && xrdb ~/.Xresources && i3-msg restart'
+alias ultrawide='~/.screenlayout/ultrawide.sh'
+alias dual='~/.screenlayout/dual.sh'
 alias r='ranger'
+alias server='cd ~/server && java -Xmx2G -Xms2G -jar server.jar nogui'
+alias ror='killall Risk\ of\ Rain\ 2.'
+alias windows='sudo grub-reboot 2 && sudo reboot'
+alias ll='ls -alF'
+alias mac='cd ~/macOS-Simple-KVM && ./basic.sh'
+alias macbook='ssh channing@68.98.243.105'
+alias push='git add . && git commit -m "Automated commit" && git push'
+alias dbms='ssh -L 5432:data.cs.jmu.edu:5432 willi7cg@student.cs.jmu.edu'
+
 (cat ~/.cache/wal/sequences &)
 export PATH="${PATH}:${HOME}/.local/bin/"
 
