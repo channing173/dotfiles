@@ -29,7 +29,7 @@ menu-1-1 = sub-item 2.2;command
 
 [bar/example1]
  
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 ;height = 38
 height = 27
@@ -46,7 +46,8 @@ line-color = #f00
  
 border-size = 4
 border-color = #00000000
- 
+
+
 padding-left = 0
 padding-right = 2
 module-margin-left = 1
@@ -64,44 +65,44 @@ tray-maxsize = 1000
 tray-position =
 tray-padding = 2
 
-
 [bar/example]
-dpi = ${xrdb:Xft.dpi:-1}
-
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 38
+;override-redirect = true
+;height = 38
 ;height = 27
-;offset-x = 1%
-;offset-y = 1%
+;offset-x = 10%
 radius = 6.0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 3 
 line-color = #f00
-
-border-size = 4
+ 
+border-size = 4 
 border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 2
+border-left-size = 300
+border-right-size = 300
+wm-stack = i3
+padding-left = 2 
+padding-right = 2 
+module-margin-left = 2 
+module-margin-right = 2 
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Wuncon Siji:pixelsize=10;1
+font-2 = Siji:pixelsize=10;1
 
-modules-left = bspwm i3
-modules-center = xwindow
-modules-right = xbacklight updates-arch-combined cpu memory wlan eth battery date
-
+modules-left = bspwm temperature
+modules-center = date1
+modules-right = xbacklight battery date2
+ 
 tray-maxsize = 1000
-tray-position =
-tray-padding = 2
+tray-position = 
+tray-padding = 2 
+
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -267,7 +268,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = ${xrdb:color5:#55aa55}
@@ -285,7 +286,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = 
 date-alt = " %Y-%m-%d"
 
 time = %l:%M
@@ -296,6 +297,39 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color6:#0a6cf5}
 
 label = %date% %time%
+
+[module/date1]
+type = internal/date
+interval = 5
+
+date = "%m-%d-%Y"
+date-alt = " %Y-%m-%d"
+
+time = %l:%M
+time-alt = %l:%M:%S
+
+;format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${xrdb:color4:#0a6cf5}
+
+label = %date%
+
+[module/date2]
+type = internal/date
+interval = 5 
+
+date = 
+date-alt = " %Y-%m-%d"
+
+time = %l:%M
+time-alt = %l:%M:%S
+
+format-prefix =  
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${xrdb:color4:#0a6cf5}
+
+label = %date% %time%
+
 
 [module/volume]
 type = internal/volume
@@ -309,13 +343,13 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = mute
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-1 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-2 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-3 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-4 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-5 = ${xrdb:color5:#9f78e1}
+bar-volume-foreground-6 = ${xrdb:color5:#9f78e1}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
