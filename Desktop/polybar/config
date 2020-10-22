@@ -83,8 +83,8 @@ line-color = #f00
  
 border-size = 4 
 border-color = #00000000
-border-left-size = 300
-border-right-size = 300
+;border-left-size = 300
+;border-right-size = 300
 wm-stack = i3
 padding-left = 2 
 padding-right = 2 
@@ -96,7 +96,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=10;1
 
 modules-left = bspwm temperature
-modules-center = date1
+modules-center = spotify
 modules-right = xbacklight battery date2
  
 tray-maxsize = 1000
@@ -449,5 +449,14 @@ exec = ~/polybar-scripts/updates-arch-combined.sh
 interval = 600
 ;format-prefix = " "
 format-underline = ${xrdb:color5:#f50a4d}
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format = <label>
+exec = python ~/.config/polybar/spotify_status.py -f '{artist}: {song}'
+format-underline = ${xrdb:color4:#0a6cf5}
 
 ; vim:ft=dosini
